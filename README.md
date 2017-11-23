@@ -18,14 +18,14 @@ apply plugin: 'com.android.library'
    根目录的 build.gradle 加入 maven-plugin    
 ```
     dependencies {
-        classpath 'com.android.tools.build:gradle:2.3.3'
+        ...
         classpath 'com.github.dcendents:android-maven-gradle-plugin:1.4.1'
     }
 ```
 
    项目的 build.gradle 添加    
 ```
-apply plugin: 'com.android.library'
+...
 apply plugin: 'com.github.dcendents.android-maven'
 ```
 
