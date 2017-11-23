@@ -1,5 +1,8 @@
 [![](https://jitpack.io/v/look0089/MyDialog.svg)](https://jitpack.io/#look0089/MyDialog)
 # MyDialog
+
+创建一个依赖库流程
+
 1.创建一个 library    
    通过 File -> New -> New Module ，选择 library    
 
