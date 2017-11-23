@@ -1,6 +1,6 @@
 [![](https://jitpack.io/v/look0089/MyDialog.svg)](https://jitpack.io/#look0089/MyDialog)
 # MyDialog
-1. 创建一个 library    
+1.创建一个 library    
    通过 File -> New -> New Module ，选择 library    
 
    或者将原项目的 build.gradle 内的 apply (一般在第一行)
@@ -14,7 +14,7 @@ apply plugin: 'com.android.library'
 ```
    这样就能创建一个 Module    
 
-2. 添加 maven 依赖    
+2.添加 maven 依赖    
    根目录的 build.gradle 加入 maven-plugin    
 ```
     dependencies {
@@ -29,9 +29,9 @@ apply plugin: 'com.android.library'
 apply plugin: 'com.github.dcendents.android-maven'
 ```
 
-3. 将 library 上传到 github，并提交 release    
+3.将 library 上传到 github，并提交 release    
 
-4. 打开 https://jitpack.io/ 并将 github 的项目地址填入，点击 Look Up    
+4.打开 https://jitpack.io/ 并将 github 的项目地址填入，点击 Look Up    
    会看到刚刚提交的 release 的版本号在列表中    
  
 5.点击 get it 后，就可以在你的项目内添加依赖使用了    
