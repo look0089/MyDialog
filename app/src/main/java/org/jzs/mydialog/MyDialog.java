@@ -5,7 +5,6 @@ import android.content.Context;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.TextView;
 
 
@@ -16,51 +15,74 @@ public class MyDialog implements OnClickListener {
 
     private Dialog dialog;
 
-    private Context context;
-
     private DialogCallBack mCallBack;
 
     public Dialog showDialog(Context context) {
-        this.context = context;
-        dialog = new Dialog(context, R.style.loading_dialog);
+        dialog = new Dialog(context, R.style.my_dialog_style);
         dialog.setContentView(R.layout.dialog_my);
-        dialog.findViewById(R.id.btn_other_cancel).setOnClickListener(this);
-        dialog.findViewById(R.id.btn_other_ok).setOnClickListener(this);
+        dialog.findViewById(R.id.btn_cancel).setOnClickListener(this);
+        dialog.findViewById(R.id.btn_ok).setOnClickListener(this);
         dialog.show();
         return dialog;
     }
 
+    /**
+     * 设置标题文字
+     *
+     * @param str
+     */
     public void setTitleText(String str) {
-        ((TextView) dialog.findViewById(R.id.tv_other_title)).setText(str);
+        ((TextView) dialog.findViewById(R.id.tv_dialog_title)).setText(str);
     }
 
+    /**
+     * 设置内容文字
+     *
+     * @param str
+     */
+    public void setContentText(String str) {
+        ((TextView) dialog.findViewById(R.id.tv_dialog_content)).setText(str);
+    }
+
+    /**
+     * 隐藏取消按钮
+     */
     public void setCancleGone() {
-        dialog.findViewById(R.id.btn_other_cancel).setVisibility(View.GONE);
+        dialog.findViewById(R.id.btn_cancel).setVisibility(View.GONE);
     }
 
-    public void setSureGone() {
-        dialog.findViewById(R.id.btn_other_ok).setVisibility(View.GONE);
+    /**
+     * 隐藏确定按钮
+     */
+    public void setOkGone() {
+        dialog.findViewById(R.id.btn_ok).setVisibility(View.GONE);
     }
 
-    public void setSureText(String str) {
-        ((Button) dialog.findViewById(R.id.btn_other_ok)).setText(str);
-    }
-
+    /**
+     * 设置取消按钮文字
+     *
+     * @param str
+     */
     public void setCancleText(String str) {
-        ((Button) dialog.findViewById(R.id.btn_other_cancel)).setText(str);
+        ((Button) dialog.findViewById(R.id.btn_cancel)).setText(str);
     }
 
+    /**
+     * 設置确定按钮文字
+     *
+     * @param str
+     */
+    public void setOkText(String str) {
+        ((Button) dialog.findViewById(R.id.btn_ok)).setText(str);
+    }
+
+    /**
+     * 设置取消按钮背景
+     *
+     * @param res
+     */
     public void setCancleBackground(int res) {
-        ((Button) dialog.findViewById(R.id.btn_other_cancel)).setBackgroundResource(res);
-    }
-
-    public void visiblityCheckcode() {
-        dialog.findViewById(R.id.et_checkcode).setVisibility(View.VISIBLE);
-    }
-
-    public String getCheckCode() {
-        String code = ((EditText) dialog.findViewById(R.id.et_checkcode)).getText().toString().trim();
-        return code;
+        ((Button) dialog.findViewById(R.id.btn_cancel)).setBackgroundResource(res);
     }
 
     public void setCallBack(MyDialog.DialogCallBack dialogCallBack) {
@@ -70,16 +92,15 @@ public class MyDialog implements OnClickListener {
     @Override
     public void onClick(View v) {
         int id = v.getId();
-        if (id == R.id.btn_other_cancel) {
+        if (id == R.id.btn_cancel) {
             if (mCallBack != null) {
                 mCallBack.cancelHandle();
             }
-            dialog.dismiss();
         }
-        if (id == R.id.btn_other_ok) {
+        if (id == R.id.btn_ok) {
             mCallBack.handle();
-            dialog.dismiss();
         }
+        dialog.dismiss();
     }
 
     public interface DialogCallBack {
