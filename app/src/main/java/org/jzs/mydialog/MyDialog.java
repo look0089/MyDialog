@@ -69,20 +69,16 @@ public class MyDialog implements OnClickListener {
 
     @Override
     public void onClick(View v) {
-        switch (v.getId()) {
-            case R.id.btn_other_cancel:
-                if (mCallBack != null) {
-                    mCallBack.cancelHandle();
-                }
-                dialog.dismiss();
-                break;
-            case R.id.btn_other_ok:
-
-                if (mCallBack != null) {
-                    mCallBack.handle();
-                }
-                dialog.dismiss();
-                break;
+        int id = v.getId();
+        if (id == R.id.btn_other_cancel) {
+            if (mCallBack != null) {
+                mCallBack.cancelHandle();
+            }
+            dialog.dismiss();
+        }
+        if (id == R.id.btn_other_ok) {
+            mCallBack.handle();
+            dialog.dismiss();
         }
     }
 
