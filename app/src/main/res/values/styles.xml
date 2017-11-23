@@ -16,7 +16,7 @@
         <!-- 无标题 -->
         <item name="android:windowNoTitle">true</item>
         <!-- 背景 -->
-        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowBackground">@color/halftransparent</item>
         <!-- 模糊(黑色) -->
         <item name="android:backgroundDimEnabled">false</item>
     </style>
