@@ -58,3 +58,27 @@ apply plugin: 'com.github.dcendents.android-maven'
 6.可以页面下复制标签，用于在 github 中显示 jitpack 版本信息    
 [![](https://jitpack.io/v/look0089/MyDialog.svg)](https://jitpack.io/#look0089/MyDialog)
 
+# 使用
+
+加载圈
+```
+ProgressDialog.getInstance().createLoadingDialog(context);
+ProgressDialog.getInstance().dismissDialog();
+```
+
+对话框
+```
+        MyDialog myDialog = new MyDialog();
+        myDialog.showDialog(this);
+        myDialog.setCallBack(new MyDialog.DialogCallBack() {
+            @Override
+            public void handle() {
+                finish();
+            }
+
+            @Override
+            public void cancelHandle() {
+
+            }
+        });
+```
